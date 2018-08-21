@@ -28,7 +28,6 @@ import java.util.Calendar;
  */
 public class MainActivity extends AppCompatActivity implements OnClickListener {
 
-    private static final String STATE_KEY = "recycler_key";
     private static final int MAX_REPLIES = 4;
     private static final int MESSAGE_SENT = 1;
     private static final int MESSAGE_RECEIVED = 2;
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private Handler mHandler = new Handler();
-    private Parcelable state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,29 +118,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
 
         return super.onOptionsItemSelected(item);
     }
-
-//    @Override
-//    protected void onSaveInstanceState(final Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//        state = mLinearLayoutManager.onSaveInstanceState();
-//        outState.putParcelable(STATE_KEY, state);
-//    }
-//
-//    @Override
-//    protected void onRestoreInstanceState(final Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//        if (savedInstanceState != null) {
-//            state = savedInstanceState.getParcelable(STATE_KEY);
-//        }
-//    }
-//
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if (state != null) {
-//            mLinearLayoutManager.onRestoreInstanceState(state);
-//        }
-//    }
 
     private void setWoebotResponse(String messageId) {
         final Message message = mMessageViewModel.getMessage(messageId);
